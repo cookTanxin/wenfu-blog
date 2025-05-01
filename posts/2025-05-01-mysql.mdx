@@ -1,0 +1,46 @@
+---
+title: 'mysql基础知识'
+date: '2025-05-01T09:10:15.125Z'
+tags:
+  - mysql
+---
+
+### mysql 基本知识
+
+> 基本数据类型
+
+- int `普通数字或 ID（<21 亿）`
+- bigint `很大的数字 ID（如雪花算法）`
+- varchar（255） `短文本（几十字符）`
+- longtext `很长的文章html markdown`
+
+### 插入数据（Create）
+```jsx
+INSERT INTO users (name, email, age)
+VALUES ('张三', 'zhangsan@example.com', 25),
+       ('李四', 'lisi@example.com', 30);
+```
+
+###  查询数据（Read）
+```jsx
+-- 查询所有用户
+SELECT * FROM users;
+
+-- 条件查询：找出年龄大于 26 的用户
+SELECT * FROM users WHERE age > 26;
+```
+
+### 更新数据（Update）
+```jsx
+-- 将李四的年龄改为 35
+UPDATE users
+SET age = 35
+WHERE name = '李四';
+```
+
+### 删除数据（Delete）
+```jsx
+-- 删除名为张三的用户
+DELETE FROM users
+WHERE name = '张三';
+```
