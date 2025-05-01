@@ -21,7 +21,7 @@ export default async function Home() {
       <div className="prose-container">
         <Profile />
         <p className="mt-4 break-words leading-loose">
-          你好 👋，我是一个前端开发人员（2019 ～ 至今），打工人一枚。
+          你好 👋，我是一个前端开发人员，打工人一枚。
         </p>
         <Title text={t('home-page.posts.title')} />
         <LatestPosts />

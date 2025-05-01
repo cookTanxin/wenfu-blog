@@ -1,7 +1,7 @@
 module.exports = {
   name: 'Wenfu',
   title: 'Wenfu',
-  description: '一个随时失业的前端.',
+  description: '一个随时失业的前端。',
   avatar: '/avatar.png',
   logo: '/logo.svg',
   siteUrl: 'https://blog.wenfu.site',
