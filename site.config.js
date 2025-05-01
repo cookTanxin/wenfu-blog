@@ -4,7 +4,7 @@ module.exports = {
   description: '一个随时失业的前端',
   avatar: '/avatar.png',
   logo: '/logo.svg',
-  siteUrl: 'https://www.xiaojun.im',
+  siteUrl: 'https://blog.wenfu.site',
   // icon 请在 src/components/Profile.tsx 中修改
   links: [
     // { name: 'GitHub', link: 'https://github.com/cookTanxin' },
