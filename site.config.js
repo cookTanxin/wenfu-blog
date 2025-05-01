@@ -1,22 +1,19 @@
 module.exports = {
   name: 'Wenfu',
   title: 'Wenfu',
-  description: '一个随时失业的前端',
+  description: '一个随时失业的前端.',
   avatar: '/avatar.png',
   logo: '/logo.svg',
   siteUrl: 'https://blog.wenfu.site',
   // icon 请在 src/components/Profile.tsx 中修改
   links: [
-    // { name: 'GitHub', link: 'https://github.com/cookTanxin' },
+    { name: 'GitHub', link: 'https://github.com/cookTanxin' },
     { name: 'RSS', link: '/feed.xml' },
   ],
   friends: [
-    // { name: '赖同学', link: 'https://www.laibh.com' },
-    // { name: '鯊手', link: 'https://www.cnblogs.com/Scooby' },
-    // { name: '戴兜', link: 'https://im.daidr.me' },
-    // { name: 'lufangzhou', link: 'https://zhoufanglu.github.io/vuepressBlog' },
-    // { name: 'wallleap', link: 'https://myblog.wallleap.cn' },
-    // { name: 'Song\'s Blog', link: 'https://songxwn.com' },
+    { name: '谷歌', link: 'https://www.google.com' },
+    { name: 'github', link: 'https://www.github.com' },
+    { name: '百度', link: 'https://www.baidu.com' },
   ],
   // en | zh-CN
   language: 'zh-CN',
