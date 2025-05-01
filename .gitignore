@@ -39,7 +39,5 @@ yarn-error.log*
 # 个人隐私文件
 .env
 src/post-helpers
-public/images/*
-!public/images/test-hero-image.webp
 
 node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node
