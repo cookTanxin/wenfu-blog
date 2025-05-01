@@ -1,0 +1,25 @@
+{
+  "nav.home": "Home",
+  "nav.posts": "Posts",
+  "nav.tags": "Tags",
+  "nav.friends": "Friends",
+
+  "home-page.posts.title": "Latest Posts",
+  "home-page.posts.view-all": "See all post",
+  "home-page.projects.title": "Side Projects",
+  "home-page.projects.view-all": "See all project",
+
+  "post-page.hits": "HITS",
+  "post-page.last-updated": "LAST UPDATED",
+  "post-page.reading-time": "{{ minutes }} min read",
+  "post-page.outdated-notice": "This post was last modified {{ days }} days ago, and some of the content may be outdated.",
+
+  "tags-page.title": "Tags",
+  "tags-page.desc": "{{ count }} tags in total",
+
+  "friends-page.title": "Friends",
+  "friends-page.desc": "{{ count }} friends in total",
+
+  "code.copy": "Copy",
+  "code.copied": "Copied!"
+}

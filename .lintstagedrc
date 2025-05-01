@@ -1,0 +1,3 @@
+{
+  "posts/*.{md,mdx}": "node ./scripts/update-frontmatter"
+}
