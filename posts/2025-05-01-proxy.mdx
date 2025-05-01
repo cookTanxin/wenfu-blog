@@ -3,3 +3,40 @@ title: 'x-ui面板部署代理+套CF'
 date: '2025-05-01T04:38:25.957Z'
 tags:
 ---
+> 项目链接
+>
+> 访问 https://github.com/vaxilu/x-ui
+
+---
+### 1. 准备工作
+确定防火墙是否关闭，或者手动开放端口，能不能登录面板 更新系统依赖
+
+```jsx
+Ubuntu：apt update -y centos ：yum update -y
+```
+
+### 2. 安装 执行命令运行脚本
+```jsx
+bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+```
+
+安装/更新完成后需要强制修改端口与账户密码——输入`y`按照提示输出信息
+
+完成后进入网址`主机IP:你输入的端口号`，输入账号密码
+
+进入主页面，选择面板设置，更改面板url根路径，更改后重启，再次进入时使用地址`主机IP:你输入的端口号/更改的根路径`，其他根据自身更改
+
+### 3. SSL证书申请
+
+输入`x-ui`进入面板管理，选择16回车
+
+```jsx
+******使用说明******
+该脚本将使用Acme脚本申请证书,使用时需保证:
+1.知晓Cloudflare 注册邮箱
+2.知晓Cloudflare Global API Key
+3.域名已通过Cloudflare进行解析到当前服务器
+4.该脚本申请证书默认安装路径为/root/cert目录
+```
+
+准备好这些东西，cloudflare直接邮箱注册https://cloudflare.com/，API KEY
