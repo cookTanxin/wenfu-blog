@@ -9,6 +9,7 @@ import { prettifyNumber } from '@/common/utils'
 import useSound from '@/hooks/useSound'
 import useBoolean from '@/hooks/useBoolean'
 
+
 const vt323 = VT323({
   subsets: ['latin'],
   display: 'swap',
@@ -74,6 +75,7 @@ const PostLikeButton: React.FC<PostLikeButtonProps> = ({ slug }) => {
       throw e
     }
   }
+
 
   if (isLoading) return null
 
