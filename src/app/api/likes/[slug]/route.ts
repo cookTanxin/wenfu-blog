@@ -6,6 +6,8 @@ export async function GET(req: NextRequest, { params }: { params: { slug: string
   const slug = decodeURIComponent(params.slug)
 
   const exists = await isPostExists(slug)
+  console.log(exists);
+
   if (!exists) {
     return new Response('Slug failed to match any post', { status: 400 })
   }
@@ -29,6 +31,9 @@ export async function PATCH(req: NextRequest, { params }: { params: { slug: stri
   if (!exists) {
     return new Response('Slug failed to match any post', { status: 400 })
   }
+  console.log('000');
+
+  console.log(req.ip);
 
   const { success } = await ratelimit.limit(`post:likes_${req.ip ?? ''}`)
   if (!success) {

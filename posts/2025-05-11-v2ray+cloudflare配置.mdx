@@ -1,0 +1,71 @@
+---
+title: 'undefined'
+date: '2025-05-11T11:26:05.366Z'
+tags:
+  - vue
+  - tailwindcss
+---
+
+### Cloudflare 配置域名
+
+VMess-WS-TLS 需要使用域名来将流量伪装成正常访问网站，所以要先准备一个域名，将其添加到 Cloudflare。（以下简称 cf）
+
+然后使用 cf 的 DNS 将域名解析到 vps，开启代理
+
+![proxy-img](/images/2025-05-11-v2ray/01.png)
+
+在宝塔面板使用上面解析的域名新建一个站点，并申请 ssl 证书
+
+在 cf 将 SSL/TLS 加密模式选为完全（或严格）
+
+![proxy-img](/images/2025-05-11-v2ray/02.png)
+
+访问刚才的站点确认成功。
+
+![proxy-img](/images/2025-05-11-v2ray/03.png)
+
+### 安装 v2ray
+
+使用了 233boy 的一键安装脚本 https://github.com/233boy/v2ray
+
+输入下面命令回车
+
+```jsx
+bash <(wget -qO- -o- https://git.io/v2ray.sh)
+```
+
+![proxy-img](/images/2025-05-11-v2ray/04.png)
+
+安装完成后自动创建一个 VMess-TCP 配置，这个是没有伪装的建议不要用这个试，输入命令 v2ray 选择 4) 删除配置删除此配置
+
+### 添加配置伪装
+
+根据教程添加是使用命令 v2ray add ws，但我因为已经部署有网站导致端口占用了 ![proxy-img](/images/2025-05-11-v2ray/05.png)
+
+https://233boy.com/v2ray/no-auto-tls/
+
+所以使用命令 v2ray no-auto-tls 并选择 2) VMess-WS-TLS ，输入刚才准备的域名完成配置创建
+
+![proxy-img](/images/2025-05-11-v2ray/06.png)
+
+记下--- no-auto-tls INFO ---中的端口(port)和路径(path)
+
+然后在宝塔面板，修改刚才准备的域名的站点的配置文件，在尾部添加以下内容
+
+![proxy-img](/images/2025-05-11-v2ray/07.png)
+
+```jsx
+# 配置Nginx将伪装路径的访问都转发到v2ray
+location /weizhuanglujing { # 填写no-auto-tls INFO的路径
+	proxy_redirect off;
+	proxy_pass http://127.0.0.1:12345; # v2ray的监听地址，填写no-auto-tls INFO的端口
+	proxy_http_version 1.1;
+	proxy_set_header Upgrade $http_upgrade;
+	proxy_set_header Connection "upgrade";
+	proxy_set_header Host $host;
+	proxy_set_header X-Real-IP $remote_addr;
+	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+}
+```
+
+### 最后访问 域名+伪装路径，显示 Bad Request 说明配置成功
