@@ -1,3 +1,12 @@
-# wenfu.site
 
-# Run npm run new:post filename title [tag1] [tag2] ... to create a post in posts folder, for more
+👀安装项目
+
+```sh
+npm install
+```
+
+🚗运行项目
+
+```sh
+npm dev
+```
